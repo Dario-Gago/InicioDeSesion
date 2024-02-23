@@ -6,11 +6,11 @@ class VentanaPrincipal:
     def VentanaSecundaria():
         #conecte su base de datos
         conexion = conexion = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="jamon600",
-        database="sys",
-        port='3306'
+        host="Host",
+        user="Usuario",
+        password="Contrseña",
+        database="Base de datos",
+        port='Puerto'
         )
             
         Root = tk.Tk()
@@ -39,8 +39,9 @@ class VentanaPrincipal:
         EntryIgresarContraseña.place(x=200, y=80)
         
         cursor = conexion.cursor()
+        #Cambia de tabla en mi caso es user y tiene las siguientes secciones (nombre, apellido,email,contraseña)
         InsertarValores ='INSERT INTO user (nombre, apellido, email, contraseña) values (%s,%s,%s,%s)'
-        #Si existe el gmail aparece un error 
+        
         
         
         def Acceso():
@@ -79,11 +80,11 @@ class VentanaPrincipal:
     def VentanaTerciaria():
         #conecte su base de datos
         conexion = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="jamon600",
-        database="sys",
-        port='3306'
+        host="Host",
+        user="Usuario",
+        password="Contraseña",
+        database="Base de datos",
+        port='Puerto'
 )
         Root = tk.Tk()
         Root.geometry('400x110')
