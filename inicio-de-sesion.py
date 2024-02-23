@@ -6,11 +6,11 @@ class VentanaPrincipal:
     def VentanaSecundaria():
         #conecte su base de datos
         conexion = conexion = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="jamon600",
-        database="sys",
-        port='3306'
+        host="Host",
+        user="Usuario",
+        password="contraseña",
+        database="Base de datos",
+        port='puerto'
         )
             
         Root = tk.Tk()
@@ -39,8 +39,9 @@ class VentanaPrincipal:
         EntryIgresarContraseña.place(x=200, y=80)
         
         cursor = conexion.cursor()
+        #Cambia tu tabla, mi caso es user 
         InsertarValores ='INSERT INTO user (nombre, apellido, email, contraseña) values (%s,%s,%s,%s)'
-        #Al ingresar valores en blanco no tomar en cuenta
+        
         
         
         def Acceso():
@@ -65,11 +66,11 @@ class VentanaPrincipal:
     def VentanaTerciaria():
         #conecte su base de datos
         conexion = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="jamon600",
-        database="sys",
-        port='3306'
+        host="Host",
+        user="Usuario",
+        password="Contraseña",
+        database="Base de datos",
+        port='Puerto'
 )
         Root = tk.Tk()
         Root.geometry('400x110')
@@ -90,6 +91,7 @@ class VentanaPrincipal:
         EntryDeContraseña.place(x=180,y=50)
         def Acceso():
             cursor = conexion.cursor()
+            #Cambia tu tabla, mi caso es user 
             BusquedaDeEmailYContraseña = "SELECT * FROM user WHERE email = %s AND contraseña = %s"
             valores = (EntryDeEmail.get(), EntryDeContraseña.get())
             cursor.execute(BusquedaDeEmailYContraseña, valores)
