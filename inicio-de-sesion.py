@@ -6,11 +6,11 @@ class VentanaPrincipal:
     def VentanaSecundaria():
         #conecte su base de datos
         conexion = conexion = mysql.connector.connect(
-        host="Host",
-        user="Usuario",
-        password="contraseña",
-        database="Base de datos",
-        port='puerto'
+        host="localhost",
+        user="root",
+        password="jamon600",
+        database="sys",
+        port='3306'
         )
             
         Root = tk.Tk()
@@ -39,19 +39,32 @@ class VentanaPrincipal:
         EntryIgresarContraseña.place(x=200, y=80)
         
         cursor = conexion.cursor()
-        #Cambia tu tabla, mi caso es user 
         InsertarValores ='INSERT INTO user (nombre, apellido, email, contraseña) values (%s,%s,%s,%s)'
-        
+        #Si existe el gmail aparece un error 
         
         
         def Acceso():
-            valores = (EntryIgresarNombre.get(),EntryIgresarApellido.get(),EntryIgresarEmail.get(),EntryIgresarContraseña.get()) 
+            valores = (EntryIgresarNombre.get(),EntryIgresarApellido.get(),EntryIgresarEmail.get(),EntryIgresarContraseña.get())   
             if valores == ('','','',''):
                 messagebox.showerror('Acceso','Ingrese un valor valido')
                 conexion.close()
                 Root.destroy()
-
-           
+            if valores == (EntryIgresarNombre.get(),'','',''):
+                messagebox.showerror('Acceso','Ingrese un valor valido')
+                conexion.close()
+                Root.destroy()
+            if valores == ('',EntryIgresarApellido.get(),'',''):
+                messagebox.showerror('Acceso','Ingrese un valor valido')
+                conexion.close()
+                Root.destroy()
+            if valores == ('','',EntryIgresarEmail.get(),''):
+                messagebox.showerror('Acceso','Ingrese un valor valido')
+                conexion.close()
+                Root.destroy()
+            if valores == ('','','',EntryIgresarContraseña.get()):
+                messagebox.showerror('Acceso','Ingrese un valor valido')
+                conexion.close()
+                Root.destroy()
             cursor.execute(InsertarValores,valores)
             conexion.commit()
             if cursor.rowcount > 0:
@@ -66,11 +79,11 @@ class VentanaPrincipal:
     def VentanaTerciaria():
         #conecte su base de datos
         conexion = mysql.connector.connect(
-        host="Host",
-        user="Usuario",
-        password="Contraseña",
-        database="Base de datos",
-        port='Puerto'
+        host="localhost",
+        user="root",
+        password="jamon600",
+        database="sys",
+        port='3306'
 )
         Root = tk.Tk()
         Root.geometry('400x110')
@@ -91,7 +104,6 @@ class VentanaPrincipal:
         EntryDeContraseña.place(x=180,y=50)
         def Acceso():
             cursor = conexion.cursor()
-            #Cambia tu tabla, mi caso es user 
             BusquedaDeEmailYContraseña = "SELECT * FROM user WHERE email = %s AND contraseña = %s"
             valores = (EntryDeEmail.get(), EntryDeContraseña.get())
             cursor.execute(BusquedaDeEmailYContraseña, valores)
