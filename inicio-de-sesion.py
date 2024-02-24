@@ -90,7 +90,10 @@ class VentanaPrincipal:
                 messagebox.showerror('Acceso','Ingrese un valor valido')
                 conexion.close()
                 Root.destroy()
-            if valores == (EntryIgresarNombre.get(),'','',EntryIgresarContraseña.get()):
+            if valores == (EntryIgresarNombre.get(),'','',EntryIgresarContraseña.get())
+                messagebox.showerror('Acceso','Ingrese un valor valido')
+                conexion.close()
+                Root.destroy()
             cursor.execute(InsertarValores,valores)
             conexion.commit()
             if cursor.rowcount > 0:
