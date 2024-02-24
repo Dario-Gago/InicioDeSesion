@@ -54,7 +54,27 @@ class VentanaPrincipal:
                 messagebox.showerror('Acceso','Ingrese un valor valido')
                 conexion.close()
                 Root.destroy()
+            if valores == (EntryIgresarNombre.get(),'','',''):
+                messagebox.showerror('Acceso','Ingrese un valor valido')
+                conexion.close()
+                Root.destroy()
+            if valores == (EntryIgresarNombre.get(),EntryIgresarApellido.get(),'',''):
+                messagebox.showerror('Acceso','Ingrese un valor valido')
+                conexion.close()
+                Root.destroy()
+            if valores == (EntryIgresarNombre.get(),EntryIgresarApellido.get(),EntryIgresarEmail.get(),''):
+                messagebox.showerror('Acceso','Ingrese un valor valido')
+                conexion.close()
+                Root.destroy()
             if valores == ('',EntryIgresarApellido.get(),'',''):
+                messagebox.showerror('Acceso','Ingrese un valor valido')
+                conexion.close()
+                Root.destroy()
+            if valores == ('',EntryIgresarApellido.get(),EntryIgresarEmail.get(),''):
+                messagebox.showerror('Acceso','Ingrese un valor valido')
+                conexion.close()
+                Root.destroy()
+            if valores == ('',EntryIgresarApellido.get(),EntryIgresarEmail.get(),EntryIgresarContraseña.get()):
                 messagebox.showerror('Acceso','Ingrese un valor valido')
                 conexion.close()
                 Root.destroy()
@@ -62,10 +82,15 @@ class VentanaPrincipal:
                 messagebox.showerror('Acceso','Ingrese un valor valido')
                 conexion.close()
                 Root.destroy()
+            if valores == ('','',EntryIgresarEmail.get(),EntryIgresarContraseña.get()):
+                messagebox.showerror('Acceso','Ingrese un valor valido')
+                conexion.close()
+                Root.destroy()
             if valores == ('','','',EntryIgresarContraseña.get()):
                 messagebox.showerror('Acceso','Ingrese un valor valido')
                 conexion.close()
                 Root.destroy()
+            if valores == (EntryIgresarNombre.get(),'','',EntryIgresarContraseña.get()):
             cursor.execute(InsertarValores,valores)
             conexion.commit()
             if cursor.rowcount > 0:
