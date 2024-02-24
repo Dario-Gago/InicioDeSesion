@@ -45,6 +45,13 @@ class VentanaPrincipal:
         
         
         def Acceso():
+            BusquedaDeEmail = f'SELECT * FROM user WHERE email = %s'
+            Email = EntryIgresarEmail.get()
+
+            cursor.execute(BusquedaDeEmail,(Email,))
+            Resultado = cursor.fetchone()
+            if Resultado:
+                messagebox.showwarning('Acceso','El correo ya existe')
             valores = (EntryIgresarNombre.get(),EntryIgresarApellido.get(),EntryIgresarEmail.get(),EntryIgresarContraseña.get())   
             if valores == ('','','',''):
                 messagebox.showerror('Acceso','Ingrese un valor valido')
